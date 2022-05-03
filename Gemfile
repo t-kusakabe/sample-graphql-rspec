@@ -12,6 +12,7 @@ gem 'ridgepole'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development do
+  gem 'graphiql-rails'
   gem 'rubocop', require: false
 end
 
