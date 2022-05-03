@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
+# graphql
+require 'sprockets/railtie' if Rails.env.development?
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -23,5 +27,6 @@ module SampleGraphqlRspec
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.middleware.use ActionDispatch::Session::CookieStore
   end
 end
