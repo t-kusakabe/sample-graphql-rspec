@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  ruby:
+    build:
+      context: .
+      dockerfile: ./docker/ruby/Dockerfile
+    container_name: ruby
+    command: /bin/sh -c "rm -rf tmp/pids/server.pid & bin/rails s -b 0.0.0.0"
+    ports:
+      - 3000:3000
+    volumes:
+      - type: bind
+        source: .
+        target: /sample-graphql-rspec
+    environment:
+      DB_HOST: "mysql"
+      DB_USER: "root"
+      DB_PASSWORD: ""
+    depends_on:
+      - mysql
+    tty: true
+    stdin_open: true
+
+  mysql:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    container_name: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_USER: "root"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+volumes:
+  mysql-data:
