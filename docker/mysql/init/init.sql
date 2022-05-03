@@ -1,2 +1,2 @@
-create database sample-graphql-rspec_dev;
-create database sample-graphql-rspec_test;
+create database sample_graphql_rspec_dev;
+create database sample_graphql_rspec_test;

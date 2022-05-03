@@ -16,7 +16,7 @@ services:
     environment:
       DB_HOST: "mysql"
       DB_USER: "root"
-      DB_PASSWORD: ""
+      DB_PASSWORD: "root"
     depends_on:
       - mysql
     tty: true
@@ -32,8 +32,7 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
     environment:
-      MYSQL_USER: "root"
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: "root"
 
 volumes:
   mysql-data:
