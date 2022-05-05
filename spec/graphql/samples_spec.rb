@@ -7,13 +7,13 @@ RSpec.describe 'Samples' do
     it 'loads samples' do
       create_list(:sample, 3)
 
-      query_string = <<-GRAPHQL
-{
-  samples {
-    id
-    name
-  }
-}
+      query_string = <<~GRAPHQL
+        {
+          samples {
+            id
+            name
+          }
+        }
       GRAPHQL
 
       result = SampleGraphqlRspecSchema.execute(query_string, context: {}, variables: {})

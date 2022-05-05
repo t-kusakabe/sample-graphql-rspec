@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 3.times do |i|
   Sample.seed do |s|
     s.id = i + 1
